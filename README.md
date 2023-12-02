@@ -1,4 +1,4 @@
-# messenger_app
+# supabase_messenger
 
 A new Flutter project.
 

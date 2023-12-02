@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase_messenger/env/env.dart';
+import 'package:supabase_messenger/pages/splash_page.dart';
+import 'package:supabase_messenger/utils/constants.dart';
 
 Future<void> main() async {
-  // await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
-    url: 'https://ogojftqxlrltnixdokdf.supabase.co',
-    anonKey: 'public-anon-key',
+    url: 'https://xuauujntwaywuwawizsf.supabase.co',
+    anonKey: Env.supabaseKey,
   );
   runApp(const MyApp());
 }
 
-final supabase = Supabase.instance.client;
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Placeholder(),
+      title: 'WhatsApp, mais en moins bien',
+      theme: appTheme,
+      home: const SplashPage(),
     );
   }
 }
