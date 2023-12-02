@@ -1,6 +1,6 @@
 {
-    "name": "messenger_app",
-    "short_name": "messenger_app",
+    "name": "supabase_messenger",
+    "short_name": "supabase_messenger",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
