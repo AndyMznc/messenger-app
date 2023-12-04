@@ -1,0 +1,17 @@
+name: build
+run-name: ${{github.actor}} a tester une Github Actions Flutter 🚀
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - run: |
+          flutter pub get
+          flutter format --set-exit-if-changed .
+          flutter analyze
+          flutter test
+          flutter build web
