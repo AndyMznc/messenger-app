@@ -4,7 +4,6 @@ import 'package:supabase_messenger/pages/chat_page.dart';
 import 'package:supabase_messenger/pages/login_page.dart';
 import 'package:supabase_messenger/utils/constants.dart';
 
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key, required this.isRegistering}) : super(key: key);
 
