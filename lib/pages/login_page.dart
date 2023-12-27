@@ -28,17 +28,24 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.of(context)
-          .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+      if (mounted) {
+        Navigator.of(context)
+            .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+      }
     } on AuthException catch (error) {
-      context.showErrorSnackBar(message: error.message);
+      if (mounted) {
+        context.showErrorSnackBar(message: error.message);
+      }
     } catch (_) {
-      context.showErrorSnackBar(message: unexpectedErrorMessage);
-    }
-    if (mounted) {
-      setState(() {
-        _isLoading = true;
-      });
+      if (mounted) {
+        context.showErrorSnackBar(message: unexpectedErrorMessage);
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 

@@ -22,6 +22,8 @@ class SplashPageState extends State<SplashPage> {
     // Attends que le widget soit monté
     await Future.delayed(Duration.zero);
 
+    if (!mounted) return;
+
     final session = supabase.auth.currentSession;
     if (session == null) {
       Navigator.of(context)

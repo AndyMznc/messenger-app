@@ -4,7 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final supabase = Supabase.instance.client;
 
 const preloader =
-    Center(child: CircularProgressIndicator(color: Colors.orange));
+    Center(child: CircularProgressIndicator(color: Colors.deepPurple));
 
 const formSpacer = SizedBox(width: 16, height: 16);
 
@@ -14,7 +14,7 @@ const unexpectedErrorMessage = 'Une erreur inattendue s\'est produite.';
 
 /// Thème de base pour changer l'apparence de l'application
 final appTheme = ThemeData.light().copyWith(
-  primaryColorDark: Colors.orange,
+  primaryColorDark: Colors.deepPurple,
   appBarTheme: const AppBarTheme(
     elevation: 1,
     backgroundColor: Colors.white,
@@ -24,21 +24,21 @@ final appTheme = ThemeData.light().copyWith(
       fontSize: 18,
     ),
   ),
-  primaryColor: Colors.orange,
+  primaryColor: Colors.deepPurple,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      foregroundColor: Colors.orange,
+      foregroundColor: Colors.deepPurple,
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       foregroundColor: Colors.white,
-      backgroundColor: Colors.orange,
+      backgroundColor: Colors.deepPurple,
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     floatingLabelStyle: const TextStyle(
-      color: Colors.orange,
+      color: Colors.deepPurple,
     ),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
@@ -47,11 +47,11 @@ final appTheme = ThemeData.light().copyWith(
         width: 2,
       ),
     ),
-    focusColor: Colors.orange,
+    focusColor: Colors.deepPurple,
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(
-        color: Colors.orange,
+        color: Colors.deepPurple,
         width: 2,
       ),
     ),

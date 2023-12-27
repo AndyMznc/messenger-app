@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'WhatsApp, mais en moins bien',
+      title: 'WhatsApp, mais moins bien',
       theme: appTheme,
       home: const SplashPage(),
     );

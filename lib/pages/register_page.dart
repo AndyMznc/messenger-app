@@ -39,12 +39,18 @@ class _RegisterPageState extends State<RegisterPage> {
     try {
       await supabase.auth.signUp(
           email: email, password: password, data: {'username': username});
-      Navigator.of(context)
-          .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+      if (mounted) {
+        Navigator.of(context)
+            .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+      }
     } on AuthException catch (error) {
-      context.showErrorSnackBar(message: error.message);
+      if (mounted) {
+        context.showErrorSnackBar(message: error.message);
+      }
     } catch (error) {
-      context.showErrorSnackBar(message: unexpectedErrorMessage);
+      if (mounted) {
+        context.showErrorSnackBar(message: unexpectedErrorMessage);
+      }
     }
   }
 

@@ -40,17 +40,21 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
   }
 
-  Future<void> _loadProfileCache(String profileId) async {
-    if (_profileCache[profileId] != null) {
-      return;
-    }
-    final data =
-        await supabase.from('profiles').select().eq('id', profileId).single();
-    final profile = Profile.fromMap(data);
+Future<void> _loadProfileCache(String profileId) async {
+  if (_profileCache[profileId] != null) {
+    return;
+  }
+  final data =
+      await supabase.from('profiles').select().eq('id', profileId).single();
+  final profile = Profile.fromMap(data);
+
+  if (mounted) {
     setState(() {
       _profileCache[profileId] = profile;
     });
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
