@@ -157,24 +157,29 @@ class _MessageBarState extends State<_MessageBar> {
     super.dispose();
   }
 
-  void _submitMessage() async {
-    final text = _textController.text;
-    final myUserId = supabase.auth.currentUser!.id;
-    if (text.isEmpty) {
-      return;
-    }
-    _textController.clear();
-    try {
-      await supabase.from('messages').insert({
-        'profile_id': myUserId,
-        'content': text,
-      });
-    } on PostgrestException catch (error) {
+ void _submitMessage() async {
+  final text = _textController.text;
+  final myUserId = supabase.auth.currentUser!.id;
+  if (text.isEmpty) {
+    return;
+  }
+  _textController.clear();
+
+  try {
+    await supabase.from('messages').insert({
+      'profile_id': myUserId,
+      'content': text,
+    });
+  } on PostgrestException catch (error) {
+    if (mounted) {
       context.showErrorSnackBar(message: error.message);
-    } catch (_) {
+    }
+  } catch (_) {
+    if (mounted) {
       context.showErrorSnackBar(message: unexpectedErrorMessage);
     }
   }
+}
 }
 
 class _ChatBubble extends StatelessWidget {

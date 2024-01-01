@@ -11,10 +11,10 @@ class LoginPage extends StatefulWidget {
   }
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
