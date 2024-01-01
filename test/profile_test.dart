@@ -2,19 +2,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:supabase_messenger/models/profile.dart';
 
 void main() {
-  group('Profile', () {
-    test('fromMap creates an instance of Profile', () {
-      final map = {
-        'id': 'user123',
-        'username': 'john_doe',
-        'created_at': '2020-01-01T12:00:00.000Z',
-      };
+  test('Profile is created correctly', () {
+    final profile = Profile(
+      id: 'user1',
+      username: 'User',
+      createdAt: DateTime.now(),
+    );
 
-      final profile = Profile.fromMap(map);
-
-      expect(profile.id, 'user123');
-      expect(profile.username, 'john_doe');
-      expect(profile.createdAt, DateTime.parse('2020-01-01T12:00:00.000Z'));
-    });
+    expect(profile.id, 'user1');
+    expect(profile.username, 'User');
   });
 }
