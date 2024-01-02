@@ -1,4 +1,5 @@
 name: Flutter CI
+run-name: ${{github.actor}} a build une application 🛠️
 
 on: [push]
 
