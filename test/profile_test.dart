@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:supabase_messenger/models/profile.dart';
 
 void main() {
-  test('Profile is created correctly', () {
+  test('Le profil est créer correctement', () {
     final profile = Profile(
       id: 'user1',
       username: 'User',

@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:supabase_messenger/models/message.dart';
 
 void main() {
-  test('Message is created correctly', () {
+  test('Le message est créer correctement', () {
     final message = Message(
       id: '1',
       profileId: 'user1',
