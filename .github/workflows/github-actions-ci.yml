@@ -5,9 +5,10 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
     env:
-      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      SUPABASE_KEY: ${{secrets.SUPABASE_ACCESS_TOKEN}}
+        
     steps:
       - uses: actions/checkout@v2
 
@@ -18,10 +19,6 @@ jobs:
 
       - name: Get dependencies
         run: flutter pub get
-
-      - name: Generate env.g.dart
-        run: |
-          echo "// GENERATED CODE - DO NOT MODIFY BY HAND\n\npart of 'env.dart';\n\n// **************************************************************************\n// EnviedGenerator\n// **************************************************************************\n\n// coverage:ignore-file\n// ignore_for_file: type=lint\nfinal class _Env {\n  static const String supabaseKey = '$SUPABASE_KEY';\n}" > lib/env/env.g.dart
 
       - name: Run Tests
         run: flutter test
